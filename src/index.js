@@ -4,8 +4,44 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+function formatName(user) {
+  return user.firstName + '' + user.lastName;
+}
+
+function getGreeting(user) {
+  if (user) {
+    return <h1>Hello, {formatName(user)}!</h1>;
+  }
+  return <h1>Hello, Stranger.</h1>;
+}
+
+const user = {
+  firstName: 'Harper',
+  lastName: 'Perez',
+  avatarUrl:
+    'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png',
+};
+
+const elementCreateElement = React.createElement(
+  'h1',
+  { className: 'greeting' },
+  'Hello, world!'
+);
+
+const element = (
+  <div tabIndex="0">
+    <img src={user.avatarUrl} />
+    <img src={user.avatarUrl}></img>
+    <h1>
+      {getGreeting('')}Hello, {getGreeting(user)}!
+    </h1>
+    <h2>Good to see you here.</h2>
+  </div>
+);
+
 ReactDOM.render(
-  <h1>Hello, world!</h1>,
+  elementCreateElement,
+  // element,
   // <React.StrictMode>
   //   <App />
   // </React.StrictMode>,
