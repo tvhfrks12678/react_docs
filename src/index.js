@@ -4,128 +4,61 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-function formatName(user) {
-  return user.firstName + '' + user.lastName;
+function FormattedDate(props) {
+  return <h2>It is {props.date.toLocaleTimeString()}</h2>;
 }
-
-function getGreeting(user) {
-  if (user) {
-    return <h1>Hello, {formatName(user)}!</h1>;
+class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { date: new Date(), comment: 'hello', counter: 1, posts: [] };
   }
-  return <h1>Hello, Stranger.</h1>;
+
+  componentDidMount() {
+    this.timerID = setInterval(() => this.tick(), 1000);
+    this.timmerCommentID = setInterval(() => this.tickComment(), 500);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+    clearInterval(this.timmerCommentID);
+  }
+
+  tick() {
+    this.setState((state, props) => ({
+      date: new Date(),
+      counter: state.counter + props.increment,
+    }));
+  }
+
+  tickComment() {
+    this.setState({
+      comment: `Comment ${new Date()}`,
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Hello, world!</h1>
+        <FormattedDate date={this.state.date} />
+        <h3>Test is {this.state.comment}</h3>
+        <h4>Counter is {this.state.counter}</h4>
+      </div>
+    );
+  }
 }
 
-const user = {
-  firstName: 'Harper',
-  lastName: 'Perez',
-  avatarUrl:
-    'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png',
-  name: 'Tarou',
-};
-
-const elementCreateElement = React.createElement(
-  'h1',
-  { className: 'greeting' },
-  'Hello, world!'
-);
-
-const element = (
-  <div tabIndex="0">
-    <img src={user.avatarUrl} />
-    <img src={user.avatarUrl}></img>
-    <h1>
-      {getGreeting('')}Hello, {getGreeting(user)}!
-    </h1>
-    <h2>Good to see you here.</h2>
-  </div>
-);
-
-function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
-}
-
-function AppWelcome() {
+function TripleClock() {
   return (
     <div>
-      <Welcome name="Sara" />
-      <Welcome name="Cahal" />
-      <Welcome name="Edite" />
+      <Clock increment="1" />
+      <Clock increment="2" />
+      <Clock increment="3" />
     </div>
   );
 }
 
-const elementWelcome = <Welcome name="Sara" />;
-
-function sum(a, b) {
-  return a + b;
-}
-
-function withdraw(account, amount) {
-  account.total -= amount;
-}
-
-function formatDate(date) {
-  return date.toLocaleDateString();
-}
-
-function Comment(props) {
-  return (
-    <div className="Comment">
-      <UserInfo user={props.author} />
-      <div classNmae="Comment-text">{props.text}</div>
-      <div className="Comment-date">{formatDate(props.date)}</div>
-    </div>
-  );
-}
-
-function UserInfo(props) {
-  return (
-    <div className="UserInfo">
-      <Avatar user={props.user} />
-      <div className="UserInfo-name">{props.user.name}</div>
-    </div>
-  );
-}
-
-function Avatar(props) {
-  return (
-    <img className="Avatar" src={props.user.avatarUrl} alt={props.user.name} />
-  );
-}
-
-const comment = {
-  date: new Date(),
-  text: 'I hope you enjoy learning React!',
-  author: {
-    name: 'Hello Kitty',
-    avatarUrl: 'https://placekitten.com/g/64/64',
-  },
-};
-
-ReactDOM.render(
-  <Comment date={comment.date} text={comment.text} author={comment.author} />,
-  // <AppWelcome />,
-  // elementWelcome,
-  // Welcome(user),
-  //elementCreateElement,
-  // element,
-  // <React.StrictMode>
-  //   <App />
-  // </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// function tick() {
-//   const element = (
-//     <div>
-//       <h1>Hello, world!</h1>
-//       <h2>It is {new Date().toLocaleTimeString()}.</h2>
-//     </div>
-//   );
-//   ReactDOM.render(element, document.getElementById('root'));
-// }
-
-// setInterval(tick, 1000);
+ReactDOM.render(<TripleClock />, document.getElementById('root'));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
