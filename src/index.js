@@ -2,63 +2,50 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Clock from './MainConcepts/05/Clock';
+import ActionLink from './MainConcepts/06/ActionLink';
+import Toggle from './MainConcepts/06/Toggle';
+import LogginButton from './MainConcepts/06/LoggingButton';
+import ButtonList from './MainConcepts/06/ButtonList';
+
 import reportWebVitals from './reportWebVitals';
 
-function FormattedDate(props) {
-  return <h2>It is {props.date.toLocaleTimeString()}</h2>;
-}
-class Clock extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { date: new Date(), comment: 'hello', counter: 1, posts: [] };
-  }
+// class ButtonList extends React.Component {
+//   handleClick(item, e) {
+//     console.log('item is:', item);
+//     //console.log('event is:', e)
+//     //console.log('this is:', this)
+//   }
+//   render() {
+//     const arr = ['hoge', 'fuga', 'piyo'];
 
-  componentDidMount() {
-    this.timerID = setInterval(() => this.tick(), 1000);
-    this.timmerCommentID = setInterval(() => this.tickComment(), 500);
-  }
+//     return (
+//       <div>
+//         {arr.map((item) => (
+//           <button onClick={(e) => this.handleClick(item, e)}>Click me</button>
+//         ))}
+//       </div>
+//     );
+//   }
+// }
 
-  componentWillUnmount() {
-    clearInterval(this.timerID);
-    clearInterval(this.timmerCommentID);
-  }
+// ReactDOM.render(<ButtonList />, document.getElementById('root'));
 
-  tick() {
-    this.setState((state, props) => ({
-      date: new Date(),
-      counter: state.counter + props.increment,
-    }));
-  }
-
-  tickComment() {
-    this.setState({
-      comment: `Comment ${new Date()}`,
-    });
-  }
-
-  render() {
-    return (
-      <div>
-        <h1>Hello, world!</h1>
-        <FormattedDate date={this.state.date} />
-        <h3>Test is {this.state.comment}</h3>
-        <h4>Counter is {this.state.counter}</h4>
-      </div>
-    );
-  }
-}
-
-function TripleClock() {
+function Content() {
   return (
     <div>
-      <Clock increment="1" />
-      <Clock increment="2" />
+      <h2>06</h2>
+      <ButtonList />
+      <LogginButton />
+      <Toggle />
+      <ActionLink />
+      <h2>05</h2>
       <Clock increment="3" />
     </div>
   );
 }
 
-ReactDOM.render(<TripleClock />, document.getElementById('root'));
+ReactDOM.render(<Content />, document.getElementById('root'));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
