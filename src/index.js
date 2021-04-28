@@ -10,27 +10,6 @@ import ButtonList from './MainConcepts/06/ButtonList';
 
 import reportWebVitals from './reportWebVitals';
 
-// class ButtonList extends React.Component {
-//   handleClick(item, e) {
-//     console.log('item is:', item);
-//     //console.log('event is:', e)
-//     //console.log('this is:', this)
-//   }
-//   render() {
-//     const arr = ['hoge', 'fuga', 'piyo'];
-
-//     return (
-//       <div>
-//         {arr.map((item) => (
-//           <button onClick={(e) => this.handleClick(item, e)}>Click me</button>
-//         ))}
-//       </div>
-//     );
-//   }
-// }
-
-// ReactDOM.render(<ButtonList />, document.getElementById('root'));
-
 function Content() {
   return (
     <div>
