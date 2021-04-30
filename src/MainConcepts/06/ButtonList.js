@@ -16,12 +16,12 @@ class ButtonList extends React.Component {
     console.log('this is:', this);
   };
 
-  handleClickTest = (word, item) => {
+  handleClickTest = (word, item, index) => {
     // e.preventDefault();
 
     console.log('word is:', word);
     console.log('item is:', item);
-    // console.log('index is:', index);
+    console.log('index is:', index);
     // console.log('this is:', this);
   };
 
@@ -30,14 +30,14 @@ class ButtonList extends React.Component {
     return (
       <div>
         {word.map((item, index) => (
-          <li key={index}>
+          <li key={item}>
             <button onClick={(e) => this.handleClickEvent(item, e)}>
               Click me Event
             </button>
             <button onClick={this.handleClick.bind(this, item, index)}>
               Click me
             </button>
-            <button onClick={this.handleClickTest.bind(item)}>
+            <button onClick={this.handleClickTest.bind(index, this)}>
               Click me Test
             </button>
           </li>
