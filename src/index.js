@@ -8,6 +8,7 @@ import Toggle from './MainConcepts/06/Toggle';
 import LogginButton from './MainConcepts/06/LoggingButton';
 import ButtonList from './MainConcepts/06/ButtonList';
 import Greeting from './MainConcepts/07/Greeting';
+import LoginControl from './MainConcepts/07/LoginControl';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -15,7 +16,8 @@ function Content() {
   return (
     <div>
       <h2>07</h2>
-      <Greeting isLoggedIn={true} />
+      <LoginControl />
+      {/* <Greeting isLoggedIn={true} /> */}
       <h2>06</h2>
       <ButtonList />
       <LogginButton />
