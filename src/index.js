@@ -9,13 +9,16 @@ import LogginButton from './MainConcepts/06/LoggingButton';
 import ButtonList from './MainConcepts/06/ButtonList';
 import Greeting from './MainConcepts/07/Greeting';
 import LoginControl from './MainConcepts/07/LoginControl';
+import Mailbox from './MainConcepts/07/Mailbox';
 
 import reportWebVitals from './reportWebVitals';
 
 function Content() {
+  const messages = ['React', 'Re: React', 'Re:Re: React'];
   return (
     <div>
       <h2>07</h2>
+      <Mailbox unreadMessages={messages} />
       <LoginControl />
       {/* <Greeting isLoggedIn={true} /> */}
       <h2>06</h2>
