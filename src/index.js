@@ -10,6 +10,7 @@ import ButtonList from './MainConcepts/06/ButtonList';
 import Greeting from './MainConcepts/07/Greeting';
 import LoginControl from './MainConcepts/07/LoginControl';
 import Mailbox from './MainConcepts/07/Mailbox';
+import Page from './MainConcepts/07/Page';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -18,6 +19,7 @@ function Content() {
   return (
     <div>
       <h2>07</h2>
+      <Page />
       <Mailbox unreadMessages={messages} />
       <LoginControl />
       {/* <Greeting isLoggedIn={true} /> */}
