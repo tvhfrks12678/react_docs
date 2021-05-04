@@ -12,12 +12,16 @@ import LoginControl from './MainConcepts/07/LoginControl';
 import Mailbox from './MainConcepts/07/Mailbox';
 import Page from './MainConcepts/07/Page';
 
+import listItems from './MainConcepts/08/listItems';
+
 import reportWebVitals from './reportWebVitals';
 
 function Content() {
   const messages = ['React', 'Re: React', 'Re:Re: React'];
   return (
     <div>
+      <h2>08</h2>
+      <ul>{listItems}</ul>
       <h2>07</h2>
       <Page />
       <Mailbox unreadMessages={messages} />
