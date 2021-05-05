@@ -13,14 +13,17 @@ import Mailbox from './MainConcepts/07/Mailbox';
 import Page from './MainConcepts/07/Page';
 
 import listItems from './MainConcepts/08/listItems';
+import NumberList from './MainConcepts/08/NumberList';
 
 import reportWebVitals from './reportWebVitals';
 
 function Content() {
   const messages = ['React', 'Re: React', 'Re:Re: React'];
+  const numbers = [1, 2, 3, 4, 5];
   return (
     <div>
       <h2>08</h2>
+      <NumberList numbers={numbers} />
       <ul>{listItems}</ul>
       <h2>07</h2>
       <Page />
