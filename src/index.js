@@ -15,6 +15,8 @@ import Page from './MainConcepts/07/Page';
 import listItems from './MainConcepts/08/listItems';
 import NumberList from './MainConcepts/08/NumberList';
 
+import NameForm from './MainConcepts/09/NameForm';
+
 import reportWebVitals from './reportWebVitals';
 
 function Content() {
@@ -22,6 +24,8 @@ function Content() {
   const numbers = [1, 2, 3, 4, 5];
   return (
     <div>
+      <h2>09</h2>
+      <NameForm />
       <h2>08</h2>
       <NumberList numbers={numbers} />
       <ul>{listItems}</ul>
