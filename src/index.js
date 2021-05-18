@@ -17,6 +17,7 @@ import NumberList from './MainConcepts/08/NumberList';
 
 import NameForm from './MainConcepts/09/NameForm';
 import EssayForm from './MainConcepts/09/EssayForm';
+import FlavorForm from './MainConcepts/09/FlavorForm';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -26,6 +27,7 @@ function Content() {
   return (
     <div>
       <h2>09</h2>
+      <FlavorForm />
       <EssayForm />
       <NameForm />
       <h2>08</h2>
